@@ -2,6 +2,9 @@
 
 صفحة هبوط «رحلة مختلفة لرؤية أوضح» لمركز الفردوس للعيون. بتتفتح من الـQR في المركز، ومعمولة للموبايل أولًا، بالعربي ومن اليمين للشمال.
 
+## Current stage
+Direction draft (branch `journey-v2`): full-width video with Arabic captions, animated boarding pass on first scroll, and the first station on a journey line that fills as you scroll. Remaining stations, «عن الفردوس» and the booking form come after approval.
+
 ## Structure
 - `index.html`: the whole site (HTML + CSS + JS, no build step)
 - `media/`: video, poster and background images
