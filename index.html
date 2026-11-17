@@ -92,6 +92,8 @@ img{display:block;max-width:100%}
 .intro-copy{position:relative;z-index:2;width:100%;max-width:480px;padding:0 24px 92px;color:#fff;text-align:center}
 .intro-copy h1{margin:0;font-size:clamp(34px,9.6vw,50px);line-height:1.22;font-weight:700}
 .intro-copy h1 em{font-style:normal;color:var(--sky)}
+.sub-intro{margin:10px auto 0;max-width:340px;font-size:16px;line-height:1.75;color:#D6E6F2}
+.dev{display:inline-block;white-space:nowrap;direction:ltr;unicode-bidi:isolate;font-family:Roboto,sans-serif;font-weight:500;letter-spacing:.02em}
 .cap{min-height:52px;margin:14px auto 18px;display:flex;justify-content:center}
 .cap span{background:rgba(0,0,0,.55);border-radius:10px;padding:7px 14px;font-size:15px;line-height:1.6;font-weight:500;transition:opacity .35s ease}
 .vctl{display:flex;gap:10px;justify-content:center}
@@ -154,24 +156,25 @@ img{display:block;max-width:100%}
 #app.darkscene .dot text.n{fill:#CFE3F2}
 #app.darkscene .dot.cur text,#app.darkscene .dot.cur text.n{fill:#001C3A}
 
-.float{position:absolute;z-index:4;left:0;top:0;width:var(--cw,176px);display:grid;
+.float{position:absolute;z-index:4;left:0;top:0;width:var(--cw,320px);display:grid;
   transform:translate3d(var(--fx,0px),var(--fy,0px),0);transition:transform .7s var(--ease),opacity .35s ease}
 .float.hide{opacity:0}
-.tail{position:absolute;top:var(--ty,50%);width:16px;height:16px;background:#fff;transform:translateY(-50%) rotate(45deg);border-radius:3px;transition:top .7s var(--ease)}
-.float.to-right .tail{right:-6px}.float.to-left .tail{left:-6px}
-.card{grid-area:1/1;position:relative;display:flex;flex-direction:column;background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 22px 44px rgba(0,28,58,.24);
+.tail{position:absolute;left:var(--tx,50%);width:16px;height:16px;background:#fff;transform:translateX(-50%) rotate(45deg);border-radius:3px;transition:left .7s var(--ease)}
+.float.above .tail{bottom:-6px}.float.below .tail{top:-6px}
+.card{grid-area:1/1;position:relative;display:flex;flex-direction:row;background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 22px 44px rgba(0,28,58,.3);
   opacity:0;transform:scale(.15);pointer-events:none;transition:opacity .35s ease,transform .65s cubic-bezier(.2,.9,.25,1.12)}
-.float.to-right .card{transform-origin:100% var(--ty,50%)}
-.float.to-left .card{transform-origin:0% var(--ty,50%)}
+.float.above .card{transform-origin:var(--tx,50%) 100%}
+.float.below .card{transform-origin:var(--tx,50%) 0%}
 .card.on{opacity:1;transform:none;pointer-events:auto}
-.card .pic{position:relative;height:104px;background:var(--tint);overflow:hidden}
-.card .pic img{width:100%;height:100%;object-fit:cover;transform:scale(1.15);transition:transform 4s ease-out}
+.card .pic{position:relative;flex:0 0 34%;min-height:100%;background:var(--tint);overflow:hidden;order:1}
+.card .pic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.15);transition:transform 4s ease-out}
 .card.on .pic img{transform:scale(1)}
-.card .pic img.contain{object-fit:contain;padding:8px 4px 0;background:var(--navy)}
-.card .txt{padding:10px 12px 12px;display:flex;flex-direction:column;gap:3px}
+.card .pic img.contain{object-fit:contain;padding:6px;background:var(--navy)}
+.card .txt{flex:1;padding:12px 14px 14px;display:flex;flex-direction:column;gap:4px;min-width:0}
 .card small{font-size:11px;font-weight:600;color:var(--sky-ink)}
-.card h4{margin:0;font-size:16px;line-height:1.35}
-.card p{margin:0;font-size:13px;line-height:1.6;color:var(--muted)}
+.card h4{margin:0;font-size:15px;line-height:1.45}
+.card p{margin:0;font-size:12.5px;line-height:1.65;color:var(--muted)}
+@media (max-width:380px){.card .pic{flex-basis:28%}.card p{font-size:12px}}
 .lbl{position:absolute;bottom:6px;right:6px;font-size:10px;font-weight:600;color:var(--sky-ink);background:rgba(255,255,255,.92);border-radius:999px;padding:3px 8px}
 
 /* glass panel */
@@ -243,6 +246,7 @@ img{display:block;max-width:100%}
     <span class="demo">فيديو تجريبي</span>
     <div class="intro-copy">
       <h1>رحلة مختلفة<br><em>لرؤية أوضح</em></h1>
+      <p class="sub-intro">اتعرّف على رحلة تصحيح الإبصار في الفردوس، من أول فحص لحد المتابعة.</p>
       <div class="cap" aria-live="polite"><span id="cap">أهلًا بيك في مركز الفردوس للعيون</span></div>
       <div class="vctl">
         <button class="pill" type="button" id="playBtn" aria-label="إيقاف الفيديو">
@@ -265,14 +269,12 @@ img{display:block;max-width:100%}
         <div class="ph-head">
           <div class="glow"></div>
           <div class="row"><span>مركز الفردوس للعيون</span><span dir="ltr" style="letter-spacing:.14em">BOARDING PASS</span></div>
-          <div class="k">تذكرة عبور لدنيا أوضح</div>
+          <div class="k">تذكرة صعود</div>
           <h2>رحلة تصحيح الإبصار</h2>
         </div>
         <div class="ph-body">
-          <div class="f"><span>المسافر</span><b>أنت</b></div>
-          <div class="f dest"><span>الوجهة النهائية</span><b>رؤية ٦/٦</b><span>بإذن الله</span></div>
-          <div class="f"><span>المركبة</span><b dir="ltr" style="text-align:right;font-family:Roboto,sans-serif;font-size:15px">AMARIS 750S</b></div>
-          <div class="f"><span>المحطات</span><b>٤ محطات</b></div>
+          <div class="f" style="grid-column:1/-1"><span>الانطلاق</span><b>من فحص تصحيح الإبصار</b></div>
+          <div class="f dest" style="grid-column:1/-1"><span>الوجهة</span><b>رؤية أوضح</b></div>
         </div>
         <div class="tear"><i></i></div>
         <div class="stub">
@@ -281,7 +283,7 @@ img{display:block;max-width:100%}
         </div>
       </div>
       <div class="ticket-cta stagger">
-        <div><button class="go" type="button" data-go="2">يلا نطير
+        <div><button class="go" type="button" data-go="2">ابدأ من أول محطة
           <svg width="20" height="20" viewBox="0 0 40 24" aria-hidden="true"><g transform="scale(-1,1) translate(-40,0)"><path d="M14 0h4l4 10h12c3 0 4 2 4 2s-1 2-4 2H22l-4 10h-4l2-10H8l-3 4H2l2-6-2-6h3l3 4h8z" fill="#00AFCF"/></g></svg>
         </button></div>
       </div>
@@ -293,7 +295,7 @@ img{display:block;max-width:100%}
     <div class="jhead">
       <span class="step" id="stepLbl">المحطة ١ من ٤</span>
       <div class="titles" id="titles">
-        <h3>الفحص</h3><h3>التعرّف على الجهاز</h3><h3>يوم الرحلة</h3><h3>وصلت لوجهتك</h3>
+        <h3>الفحص</h3><h3>الجهاز</h3><h3>يوم العملية</h3><h3>الوصول والمتابعة</h3>
       </div>
     </div>
     <div class="route" id="route">
@@ -323,23 +325,23 @@ img{display:block;max-width:100%}
           <circle cx="-10.5" cy="-30" r=".9" fill="#E5484D"/><circle cx="-10.5" cy="30" r=".9" fill="#3DBE8B"/>
         </g>
       </svg>
-      <div class="float to-left hide" id="float">
+      <div class="float below hide" id="float">
         <span class="tail" aria-hidden="true"></span>
         <article class="card">
           <div class="pic"><img src="media/ph-exam.jpg" alt="فحص النظر"></div>
-          <div class="txt"><small>المحطة ١</small><h4>الفحص</h4><p>الدكتور يحدد إيه اللي يناسب عينك.</p></div>
+          <div class="txt"><small>المحطة ١ · الفحص</small><h4>رحلتك بتبدأ بفحص.</h4><p>الدكتور بيراجع قياسات عينك ويشرح لك أنهي طريقة لتصحيح الإبصار تناسبك. ولو الإجراء مناسب ليك وقررت تكمل، فريق الحجز هينسّق معاك ميعاد العملية.</p></div>
         </article>
         <article class="card">
           <div class="pic"><img class="contain" src="media/amaris.webp" alt="جهاز شفايند أماريس 750S"></div>
-          <div class="txt"><small>المحطة ٢</small><h4>التعرّف على الجهاز</h4><p>جهاز <span dir="ltr">AMARIS 750S</span> بتقنية <span dir="ltr">TransPRK</span>: ليزر من غير شفرة ولا شق.</p></div>
+          <div class="txt"><small>المحطة ٢ · الجهاز</small><h4><span class="dev" dir="ltr">SCHWIND AMARIS 750S</span><br>تصحيح الإبصار السطحي بتقنية <span dir="ltr" class="dev">TransPRK</span></h4><p>في تقنية <span dir="ltr" class="dev">TransPRK</span>، الليزر بيشتغل مباشرة على سطح القرنية من غير ما الدكتور يعمل شريحة فيها. جهاز الفردوس بيطلق ٧٥٠ نبضة ليزر في الثانية، والدكتور بيخطّط التصحيح حسب قياسات عينك ويشرح لك إيه اللي تتوقعه أثناء الإجراء وبعده.</p></div>
         </article>
         <article class="card">
           <div class="pic"><img src="media/ph-day.jpg" alt="فريق الفردوس يوم الرحلة"></div>
-          <div class="txt"><small>المحطة ٣</small><h4>يوم الرحلة</h4><p>من تذكرة الرحلة في الاستقبال، لصالة ما قبل الانطلاق، للحظة التحوّل في غرفة الليزر.</p></div>
+          <div class="txt"><small>المحطة ٣ · يوم العملية</small><h4>تذكرتك جاهزة… ودي بداية رحلتك.</h4><p>هتستلم تذكرتك في الاستقبال، والفريق هيجهّزك ويشرح لك اللي هيحصل قبل ما تدخل غرفة الليزر. لو هدفك تقلّل اعتمادك على النظارة، يوم العملية هو خطوة في رحلة لرؤية أوضح.</p></div>
         </article>
         <article class="card">
           <div class="pic"><img src="media/ph-eye.jpg" alt="رؤية أوضح"></div>
-          <div class="txt"><small>المحطة ٤</small><h4>وصلت لوجهتك</h4><p>أهلًا بيك في عالمك الجديد.. ومعاك «زاد الرحلة»: تعليمات ما بعد الرحلة وميعاد المتابعة.</p></div>
+          <div class="txt"><small>المحطة ٤ · الوصول والمتابعة</small><h4>حمد الله على السلامة… وصلت لوجهتك، والمتابعة لسه معاك.</h4><p>قبل ما تروح، فريق الفردوس هيراجع معاك تعليمات التعافي، ويأكد لك ميعاد المتابعة، ويقول لك تتواصل مع مين لو عندك سؤال. في المتابعة، الدكتور هيطمن على عينك ويقول لك إمتى ترجع لروتينك حسب تعافيك.</p></div>
         </article>
       </div>
     </div>
@@ -348,11 +350,10 @@ img{display:block;max-width:100%}
   <!-- 6 · ABOUT -->
   <section class="scene" id="s-about" aria-label="عن الفردوس">
     <div class="inner glass stagger">
-      <span class="eyebrow">عن الفردوس</span>
-      <h2 class="h" style="font-size:32px">مركز الفردوس للعيون</h2>
-      <p class="lead">أول مركز عيون في الشرقية حاصل على اعتماد <span dir="ltr" style="font-family:Roboto,sans-serif">GAHAR</span>. بنجمع بين التميّز الطبي والتكنولوجيا المتقدمة والرعاية الإنسانية، في مكان واحد تثق فيه لأهالي الشرقية وشرق الدلتا.</p>
+      <span class="eyebrow">عن مركز الفردوس للعيون</span>
+      <h2 class="h" style="font-size:28px">من أول كشف لحد المتابعة، فريق الفردوس معاك.</h2>
+      <p class="lead">مركز الفردوس للعيون في الزقازيق بيقدّم خدمات تشخيص وعلاج أمراض العيون وتصحيح الإبصار، مع فريق من الاستشاريين والأخصائيين في طب وجراحة العيون. في رحلة تصحيح الإبصار، بنبدأ بفحص عينك، وبنشرح لك الخيارات المناسبة لحالتك، وبنتابع معاك بعد الإجراء.</p>
       <div class="photo"><img src="media/ph-doctor.jpg" alt="طبيب من فريق الفردوس"></div>
-      <div class="chips"><span>المريض أولًا</span><span>التميّز</span><span>النزاهة</span><span>الابتكار</span><span>الثقة</span></div>
     </div>
   </section>
 
@@ -360,21 +361,22 @@ img{display:block;max-width:100%}
   <section class="scene" id="s-book" aria-label="احجز فحص">
     <div class="inner glass stagger">
       <span class="eyebrow">المحطة الأخيرة</span>
-      <h2 class="h" style="font-size:32px">ابدأ رحلتك بالفحص</h2>
-      <div><button class="cta" type="button" data-open-book>اطلب حجز فحص تصحيح الإبصار
+      <h2 class="h" style="font-size:28px">متأجّلش تاني… خُد أول خطوة لرؤية أوضح.</h2>
+      <p class="lead" style="margin-bottom:16px">سيب اسمك ورقم موبايلك، وفريق الفردوس هيتواصل معاك لتحديد ميعاد فحص تصحيح الإبصار.</p>
+      <div><button class="cta" type="button" data-open-book>اطلب حجز الفحص دلوقتي
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 18l-6-6 6-6"/></svg></button></div>
       <div class="contact">
-        <a class="crow" href="tel:01000000000">
+        <a class="crow" href="tel:01000076522">
           <span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00798F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></span>
-          <span><span>اتصل بينا · واتساب</span><b class="ltr">0100 000 0000</b></span>
+          <span><span>اتصل بينا</span><b class="ltr" style="font-family:Roboto,sans-serif">010 00076522</b></span>
         </a>
         <div class="crow">
           <span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00798F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
-          <span><span>العنوان</span><b>١٢ شارع المثال، الشرقية</b></span>
+          <span><span>العنوان</span><b>كفر محمد حسين، الزقازيق، الشرقية</b></span>
         </div>
         <div class="crow">
           <span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00798F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
-          <span><span>مواعيد العمل</span><b>السبت – الخميس · ١٠ ص – ١٠ م</b></span>
+          <span><span>مواعيد العمل</span><b>السبت – الخميس · ١٠ ص – ١٠ م</b><span>الجمعة: إجازة</span></span>
         </div>
         <div class="crow">
           <span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00798F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="#00798F"/></svg></span>
@@ -398,7 +400,7 @@ img{display:block;max-width:100%}
     <button class="x" type="button" data-close aria-label="إغلاق"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#001C3A" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
     <form class="form" id="form" novalidate>
       <h3 id="sheetTitle">احجز فحص تصحيح الإبصار</h3>
-      <p class="sub">اكتب بياناتك وهنكلمك نأكد الموعد.</p>
+      <p class="sub">سيب اسمك ورقم موبايلك، وفريق الفردوس هيتواصل معاك.</p>
       <label for="name">الاسم</label>
       <input id="name" autocomplete="name" placeholder="اسمك بالكامل">
       <p class="err" id="nameErr">اكتب اسمك من فضلك.</p>
@@ -409,8 +411,8 @@ img{display:block;max-width:100%}
     </form>
     <div class="done" role="status">
       <div class="ok"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#00798F" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg></div>
-      <h3>وصلنا طلبك!</h3>
-      <p>فريق الفردوس هيتواصل معاك قريب لتأكيد الموعد.</p>
+      <h3>طلبك وصل.</h3>
+      <p>فريق الفردوس هيتواصل معاك لتحديد الميعاد.</p>
       <button class="cta" type="button" data-close>تمام</button>
     </div>
   </div>
@@ -512,7 +514,7 @@ img{display:block;max-width:100%}
   /* ---------- video ---------- */
   var vid=document.getElementById('vid'), vbar=document.getElementById('vbar'), cap=document.getElementById('cap');
   var playBtn=document.getElementById('playBtn'), playIco=document.getElementById('playIco'), playTxt=document.getElementById('playTxt');
-  var CAPS=[[0,'أهلًا بيك في مركز الفردوس للعيون'],[2.4,'رحلتك بتبدأ بفحص دقيق'],[4.8,'على جهاز SCHWIND AMARIS 750S'],[7.6,'فريقنا معاك في كل خطوة'],[10,'ووجهتك: رؤية أوضح']];
+  var CAPS=[[0,'أهلًا بيك في مركز الفردوس للعيون'],[2.4,'رحلتك بتبدأ بفحص دقيق'],[4.8,'على جهاز \u2066SCHWIND AMARIS 750S\u2069'],[7.6,'فريقنا معاك في كل خطوة'],[10,'ووجهتك: رؤية أوضح']];
   var lastCap='';
   function setIcon(playing){
     playIco.innerHTML=playing?'<rect x="6" y="5" width="4" height="14" rx="1" fill="currentColor"/><rect x="14" y="5" width="4" height="14" rx="1" fill="currentColor"/>':'<path d="M8 4.5v15l12-7.5z" fill="currentColor"/>';
@@ -535,7 +537,7 @@ img{display:block;max-width:100%}
   var path=document.getElementById('routePath'), trail=document.getElementById('trailPath');
   var plane=document.getElementById('plane'), dotsG=document.getElementById('dotsG'), svgEl=document.getElementById('routeSvg');
   var L=path.getTotalLength(); trail.style.strokeDasharray=L; trail.style.strokeDashoffset=L;
-  var STOPS=[0.03,0.34,0.64,0.97], NAMES=['الفحص','الجهاز','يوم الرحلة','وصلت لوجهتك'], NS='http://www.w3.org/2000/svg', dotEls=[];
+  var STOPS=[0.03,0.34,0.64,0.97], NAMES=['الفحص','الجهاز','يوم العملية','الوصول والمتابعة'], NS='http://www.w3.org/2000/svg', dotEls=[];
   STOPS.forEach(function(f,i){
     var pt=path.getPointAtLength(f*L), g=document.createElementNS(NS,'g'); g.setAttribute('class','dot');
     var pu=document.createElementNS(NS,'circle'); pu.setAttribute('class','pulse'); pu.setAttribute('cx',pt.x); pu.setAttribute('cy',pt.y); pu.setAttribute('r',11);
@@ -565,13 +567,13 @@ img{display:block;max-width:100%}
   function placeCard(pt){
     var rr=document.getElementById('route').getBoundingClientRect(), m=svgEl.getScreenCTM(); if(!m) return;
     var px=pt.x*m.a+pt.y*m.c+m.e-rr.left, py=pt.x*m.b+pt.y*m.d+m.f-rr.top;
-    var W=Math.min(184,Math.round(rr.width/2-18)), gap=36, H=floatEl.offsetHeight||230;
-    var onRight=px>rr.width/2, x=onRight?px-gap-W:px+gap;
-    x=Math.max(4,Math.min(rr.width-W-4,x));
-    var y=Math.max(-10,Math.min(rr.height-H,py-H*.45));
+    var W=Math.min(360,Math.round(rr.width-12)), gap=34, H=floatEl.offsetHeight||200;
+    var x=Math.max(6,Math.min(rr.width-W-6,px-W/2));
+    var above=py>rr.height*0.5, y=above?py-gap-H:py+gap;
+    y=Math.max(-70,Math.min(rr.height-H+20,y));
     floatEl.style.setProperty('--cw',W+'px'); floatEl.style.setProperty('--fx',x.toFixed(1)+'px'); floatEl.style.setProperty('--fy',y.toFixed(1)+'px');
-    floatEl.style.setProperty('--ty',Math.max(22,Math.min(H-22,py-y)).toFixed(1)+'px');
-    floatEl.classList.toggle('to-right',onRight); floatEl.classList.toggle('to-left',!onRight);
+    floatEl.style.setProperty('--tx',Math.max(24,Math.min(W-24,px-x)).toFixed(1)+'px');
+    floatEl.classList.toggle('above',above); floatEl.classList.toggle('below',!above);
   }
   function hideCard(){ floatEl.classList.add('hide'); cards.forEach(function(c){ c.classList.remove('on'); }); }
   function ease(t){ return t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2; }

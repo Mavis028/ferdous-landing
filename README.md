@@ -16,5 +16,4 @@ npx serve .
 ## Still dummy
 - `media/intro.mp4`, `media/poster.jpg`: replace with the center's real video and cover
 - `media/ph-*.jpg`: photos taken from the brand guidelines; replace with photos from the center when available
-- Contact details and the «عن الفردوس» text in `index.html`
 - Booking form: see the `TODO` in `index.html` to connect it to WhatsApp, email or a CRM
