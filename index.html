@@ -6,17 +6,17 @@
 <title>الفردوس — رحلة تصحيح الإبصار</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --navy:#0B2545;--navy-2:#13335C;--sky:#4FB3E8;--sky-ink:#156A9E;--tint:#EAF6FD;
+  --navy:#001C3A;--blue:#164A8F;--sky:#00AFCF;--sky-ink:#00798F;--tint:#E6F4F8;--ghost:#E6E6E6;
   --muted:#4A5B73;--line:#D6E6F2;--ease:cubic-bezier(.2,.8,.2,1);
   --vh:100vh;
 }
 @supports (height:100svh){:root{--vh:100svh}}
 *{box-sizing:border-box}
 html,body{margin:0;height:100%;overflow:hidden;overscroll-behavior:none}
-body{font-family:'IBM Plex Sans Arabic',system-ui,sans-serif;color:var(--navy);background:var(--navy);-webkit-font-smoothing:antialiased;touch-action:none}
+body{font-family:'IBM Plex Sans Arabic','Roboto',system-ui,sans-serif;color:var(--navy);background:var(--navy);-webkit-font-smoothing:antialiased;touch-action:none}
 button{font:inherit;color:inherit}
 img{display:block;max-width:100%}
 
@@ -29,25 +29,29 @@ img{display:block;max-width:100%}
   transition:opacity 1.1s ease,transform 6s ease-out,filter .5s linear}
 .bg.on{opacity:1;transform:scale(1.02)}
 .bg-tint{position:absolute;inset:0;z-index:1;pointer-events:none;
-  background:linear-gradient(180deg,rgba(11,37,69,.12),rgba(11,37,69,0) 30%,rgba(11,37,69,.08));}
+  background:linear-gradient(180deg,rgba(0,28,58,.12),rgba(0,28,58,0) 30%,rgba(0,28,58,.08));}
 .drift{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden}
 .puff{position:absolute;border-radius:50%;background:radial-gradient(closest-side,rgba(255,255,255,.75),rgba(255,255,255,0));animation:drift linear infinite}
 @keyframes drift{from{transform:translateX(-30vw)}to{transform:translateX(130vw)}}
 
 /* ---------- header / chrome ---------- */
 .top{position:absolute;z-index:30;top:0;left:0;right:0;height:64px;padding:0 18px;display:flex;align-items:center;justify-content:space-between}
-.brand{display:flex;align-items:center;gap:10px;color:#fff;transition:color .6s ease}
+.brand{position:relative;height:40px;width:138px}
+.logo{position:absolute;inset:0 auto auto 0;right:0;height:40px;width:auto;transition:opacity .6s ease}
+.logo.c{opacity:0}
+#app.light .logo.c{opacity:1}
+#app.light .logo.w{opacity:0}
 .brand b{display:block;font-size:17px;line-height:1.1}
 .brand small{display:block;font-size:11px;opacity:.8}
 #app.light .brand{color:var(--navy)}
 .top-cta{border:0;border-radius:999px;background:rgba(255,255,255,.18);color:#fff;font-weight:600;font-size:13px;padding:0 16px;min-height:42px;cursor:pointer;
   backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.35);transition:all .5s ease}
-#app.light .top-cta{background:var(--navy);color:#fff;border-color:var(--navy)}
+#app.light .top-cta{background:var(--blue);color:#fff;border-color:var(--blue)}
 .dots{position:absolute;z-index:30;left:14px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:8px}
 .dots button{width:8px;height:8px;padding:0;border:0;border-radius:8px;background:rgba(255,255,255,.55);cursor:pointer;transition:all .4s var(--ease);position:relative}
 .dots button::after{content:"";position:absolute;inset:-10px}
 .dots button.on{height:26px;background:#fff}
-#app.light .dots button{background:rgba(11,37,69,.25)}
+#app.light .dots button{background:rgba(0,28,58,.25)}
 #app.light .dots button.on{background:var(--navy)}
 .next{position:absolute;z-index:30;left:50%;bottom:18px;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:2px;
   border:0;background:none;cursor:pointer;color:#fff;font-size:12px;min-height:44px;transition:opacity .4s ease,color .6s ease}
@@ -80,7 +84,7 @@ img{display:block;max-width:100%}
 #s-intro{padding:0;justify-content:flex-end;filter:none;transform:none}
 #s-intro.up{transform:scale(1.06)}
 #s-intro video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-#s-intro .shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,37,69,.55) 0%,rgba(11,37,69,0) 22%,rgba(11,37,69,.15) 45%,rgba(11,37,69,.92) 100%)}
+#s-intro .shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,28,58,.55) 0%,rgba(0,28,58,0) 22%,rgba(0,28,58,.15) 45%,rgba(0,28,58,.92) 100%)}
 .intro-copy{position:relative;z-index:2;width:100%;max-width:480px;padding:0 24px 92px;color:#fff;text-align:center}
 .intro-copy h1{margin:0;font-size:clamp(34px,9.6vw,50px);line-height:1.22;font-weight:700}
 .intro-copy h1 em{font-style:normal;color:var(--sky)}
@@ -94,14 +98,14 @@ img{display:block;max-width:100%}
 .demo{position:absolute;z-index:3;top:72px;right:18px;font-size:11px;color:#fff;background:rgba(0,0,0,.35);border-radius:999px;padding:5px 10px}
 
 /* ticket */
-.pass{width:100%;max-width:360px;margin:0 auto;filter:drop-shadow(0 26px 40px rgba(11,37,69,.28));
+.pass{width:100%;max-width:360px;margin:0 auto;filter:drop-shadow(0 26px 40px rgba(0,28,58,.28));
   transform:translateY(120px) rotate(-8deg) scale(.9);opacity:0;transition:transform 1.2s var(--ease) .3s,opacity .8s ease .3s}
 .scene.on .pass{transform:none;opacity:1}
-.ph-head{background:var(--navy);color:#fff;border-radius:22px 22px 0 0;padding:20px 22px 22px;position:relative;overflow:hidden}
+.ph-head{background:var(--blue);color:#fff;border-radius:22px 22px 0 0;padding:20px 22px 22px;position:relative;overflow:hidden}
 .ph-head .row{display:flex;justify-content:space-between;font-size:11px;color:#A9C9E2}
 .ph-head .k{margin-top:12px;font-size:13px;color:#A9C9E2}
 .ph-head h2{margin:2px 0 0;font-size:26px;line-height:1.3}
-.ph-head .glow{position:absolute;width:220px;height:220px;border-radius:50%;left:-60px;top:-80px;background:radial-gradient(closest-side,rgba(79,179,232,.45),transparent)}
+.ph-head .glow{position:absolute;width:220px;height:220px;border-radius:50%;left:-60px;top:-80px;background:radial-gradient(closest-side,rgba(0,175,207,.45),transparent)}
 .ph-body{background:#fff;padding:18px 22px;display:grid;grid-template-columns:1fr 1fr;gap:14px 12px}
 .f span{display:block;font-size:12px;color:var(--muted)}
 .f b{display:block;font-size:16px;font-weight:600}
@@ -112,7 +116,7 @@ img{display:block;max-width:100%}
 .tear i{position:absolute;right:20px;left:20px;top:12px;border-top:2px dashed #C9DDEB}
 .stub{background:#fff;border-radius:0 0 22px 22px;padding:8px 22px 20px;display:flex;align-items:center;justify-content:space-between}
 .ticket-cta{margin-top:26px;text-align:center}
-.go{border:0;border-radius:16px;background:var(--navy);color:#fff;min-height:54px;padding:0 26px;font-weight:700;font-size:16px;cursor:pointer;display:inline-flex;align-items:center;gap:10px;box-shadow:0 14px 30px rgba(11,37,69,.25)}
+.go{border:0;border-radius:16px;background:var(--blue);color:#fff;min-height:54px;padding:0 26px;font-weight:700;font-size:16px;cursor:pointer;display:inline-flex;align-items:center;gap:10px;box-shadow:0 14px 30px rgba(0,28,58,.25)}
 
 /* journey */
 #s-journey{padding:78px 16px 70px;justify-content:flex-start}
@@ -123,11 +127,12 @@ img{display:block;max-width:100%}
 .titles h3{position:absolute;inset:0;margin:0;white-space:nowrap;font-size:clamp(28px,8vw,40px);line-height:58px;font-weight:700;opacity:0;transform:translateY(24px);transition:opacity .5s ease,transform .7s var(--ease),color .6s ease}
 .titles h3.on{opacity:1;transform:none;transition-delay:.15s}
 .titles h3.off{transform:translateY(-24px)}
-#app.darkscene .titles h3{color:#fff}
+#app.darkscene .titles h3{color:#fff;text-shadow:0 2px 20px rgba(0,28,58,.55)}
+.titles h3{text-shadow:0 2px 22px rgba(255,255,255,.85)}
 .route{position:relative;flex:1;width:100%;max-width:460px;min-height:0;z-index:2}
 .route svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
-.base{fill:none;stroke:rgba(11,37,69,.3);stroke-width:2.5;stroke-dasharray:2 9;stroke-linecap:round;transition:stroke .6s}
-.trail{fill:none;stroke:var(--navy);stroke-width:3.5;stroke-linecap:round;transition:stroke .6s}
+.base{fill:none;stroke:rgba(0,28,58,.3);stroke-width:2.5;stroke-dasharray:2 9;stroke-linecap:round;transition:stroke .6s}
+.trail{fill:none;stroke:var(--blue);stroke-width:3.5;stroke-linecap:round;transition:stroke .6s}
 #app.darkscene .base{stroke:rgba(255,255,255,.4)}
 #app.darkscene .trail{stroke:#fff}
 .dot .ring{fill:#fff;stroke:var(--navy);stroke-width:2.5;transition:all .4s ease}
@@ -147,7 +152,7 @@ img{display:block;max-width:100%}
 .float.hide{opacity:0}
 .tail{position:absolute;top:var(--ty,50%);width:16px;height:16px;background:#fff;transform:translateY(-50%) rotate(45deg);border-radius:3px;transition:top .7s var(--ease)}
 .float.to-right .tail{right:-6px}.float.to-left .tail{left:-6px}
-.card{grid-area:1/1;position:relative;display:flex;flex-direction:column;background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 22px 44px rgba(11,37,69,.24);
+.card{grid-area:1/1;position:relative;display:flex;flex-direction:column;background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 22px 44px rgba(0,28,58,.24);
   opacity:0;transform:scale(.15);pointer-events:none;transition:opacity .35s ease,transform .65s cubic-bezier(.2,.9,.25,1.12)}
 .float.to-right .card{transform-origin:100% var(--ty,50%)}
 .float.to-left .card{transform-origin:0% var(--ty,50%)}
@@ -163,7 +168,7 @@ img{display:block;max-width:100%}
 .lbl{position:absolute;bottom:6px;right:6px;font-size:10px;font-weight:600;color:var(--sky-ink);background:rgba(255,255,255,.92);border-radius:999px;padding:3px 8px}
 
 /* glass panel */
-.glass{background:rgba(255,255,255,.78);backdrop-filter:blur(18px) saturate(1.3);-webkit-backdrop-filter:blur(18px) saturate(1.3);border:1px solid rgba(255,255,255,.7);border-radius:26px;padding:24px 22px;box-shadow:0 24px 50px rgba(11,37,69,.14)}
+.glass{background:rgba(255,255,255,.78);backdrop-filter:blur(18px) saturate(1.3);-webkit-backdrop-filter:blur(18px) saturate(1.3);border:1px solid rgba(255,255,255,.7);border-radius:26px;padding:24px 22px;box-shadow:0 24px 50px rgba(0,28,58,.14)}
 .photo{margin-top:18px;height:200px;border-radius:18px;overflow:hidden;position:relative}
 .photo img{width:100%;height:100%;object-fit:cover;transform:scale(1.15);transition:transform 6s ease-out}
 .scene.on .photo img{transform:scale(1)}
@@ -171,7 +176,7 @@ img{display:block;max-width:100%}
 .chips span{font-size:13px;font-weight:600;background:#fff;border:1px solid var(--line);border-radius:999px;padding:7px 12px}
 
 /* booking */
-.cta{width:100%;min-height:56px;border:0;border-radius:16px;background:var(--navy);color:#fff;font-weight:700;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;box-shadow:0 14px 30px rgba(11,37,69,.22)}
+.cta{width:100%;min-height:56px;border:0;border-radius:16px;background:var(--blue);color:#fff;font-weight:700;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;box-shadow:0 14px 30px rgba(0,28,58,.22)}
 .contact{margin-top:16px;display:grid;gap:10px}
 .crow{display:flex;align-items:center;gap:12px;background:#fff;border-radius:16px;padding:12px 14px;text-decoration:none;color:inherit;border:1px solid var(--line)}
 .crow .ic{width:40px;height:40px;border-radius:12px;background:var(--tint);display:grid;place-items:center;flex:none}
@@ -180,7 +185,7 @@ img{display:block;max-width:100%}
 .crow .ltr{direction:ltr;text-align:right}
 
 /* sheet */
-.sheet-bg{position:fixed;inset:0;z-index:60;background:rgba(11,37,69,.5);opacity:0;pointer-events:none;transition:opacity .3s ease}
+.sheet-bg{position:fixed;inset:0;z-index:60;background:rgba(0,28,58,.5);opacity:0;pointer-events:none;transition:opacity .3s ease}
 .sheet{position:fixed;z-index:61;left:0;right:0;bottom:0;max-width:520px;margin:0 auto;background:#fff;border-radius:26px 26px 0 0;padding:14px 22px 28px;transform:translateY(105%);transition:transform .5s var(--ease)}
 .open .sheet-bg{opacity:1;pointer-events:auto}.open .sheet{transform:none}
 .grab{width:44px;height:5px;border-radius:5px;background:#D5E1EA;margin:0 auto 14px}
@@ -188,7 +193,7 @@ img{display:block;max-width:100%}
 .sheet .sub{margin:0 0 18px;color:var(--muted);font-size:14px}
 .sheet label{display:block;font-size:14px;font-weight:600;margin:0 0 6px}
 .sheet input{width:100%;min-height:52px;border:1.5px solid var(--line);border-radius:14px;padding:0 14px;font:inherit;font-size:16px;color:var(--navy);margin-bottom:14px}
-.sheet input:focus{outline:none;border-color:var(--sky-ink);box-shadow:0 0 0 4px rgba(79,179,232,.2)}
+.sheet input:focus{outline:none;border-color:var(--sky-ink);box-shadow:0 0 0 4px rgba(0,175,207,.2)}
 .sheet input[type=tel]{direction:ltr;text-align:right}
 .err{display:none;margin:-8px 0 12px;font-size:13px;color:#B42318}.err.show{display:block}
 .x{position:absolute;top:14px;left:16px;width:44px;height:44px;border:0;border-radius:50%;background:var(--tint);display:grid;place-items:center;cursor:pointer}
@@ -204,20 +209,20 @@ img{display:block;max-width:100%}
 <div id="app">
 
   <div class="bgs" id="bgs">
-    <div class="bg" data-k="sky" style="background-image:url(media/bg-sky.jpg)"></div>
-    <div class="bg" data-k="exam" style="background-image:url(media/bg-exam.jpg)"></div>
+    <div class="bg" data-k="clinic" style="background-image:url(media/ph-clinic.jpg)"></div>
+    <div class="bg" data-k="exam" style="background-image:url(media/ph-exam.jpg)"></div>
     <div class="bg" data-k="device" style="background-image:url(media/bg-device.jpg)"></div>
-    <div class="bg" data-k="day" style="background-image:url(media/bg-day.jpg)"></div>
-    <div class="bg" data-k="follow" style="background-image:url(media/bg-follow.jpg)"></div>
-    <div class="bg" data-k="about" style="background-image:url(media/bg-about.jpg)"></div>
+    <div class="bg" data-k="day" style="background-image:url(media/ph-day.jpg)"></div>
+    <div class="bg" data-k="eye" style="background-image:url(media/ph-eye.jpg)"></div>
+    <div class="bg" data-k="doctor" style="background-image:url(media/ph-doctor.jpg)"></div>
   </div>
   <div class="bg-tint"></div>
   <div class="drift" id="drift" aria-hidden="true"></div>
 
   <header class="top">
-    <div class="brand">
-      <svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><circle cx="17" cy="17" r="15" fill="none" stroke="currentColor" stroke-width="2.4"/><circle cx="17" cy="17" r="7" fill="#4FB3E8"/><circle cx="19.4" cy="14.6" r="2" fill="#fff"/></svg>
-      <span><b>الفردوس</b><small>مركز الفردوس للعيون</small></span>
+    <div class="brand" role="img" aria-label="الفردوس للعيون">
+      <img class="logo w" src="media/logo-white.png" alt="">
+      <img class="logo c" src="media/logo.png" alt="">
     </div>
     <button class="top-cta" type="button" data-open-book>احجز فحص</button>
   </header>
@@ -252,24 +257,24 @@ img{display:block;max-width:100%}
         <div class="ph-head">
           <div class="glow"></div>
           <div class="row"><span>مركز الفردوس للعيون</span><span dir="ltr" style="letter-spacing:.14em">BOARDING PASS</span></div>
-          <div class="k">تذكرة صعود</div>
+          <div class="k">تذكرة عبور لدنيا أوضح</div>
           <h2>رحلة تصحيح الإبصار</h2>
         </div>
         <div class="ph-body">
-          <div class="f"><span>الانطلاق</span><b>الفحص</b></div>
-          <div class="f dest"><span>الوجهة</span><b>رؤية أوضح</b></div>
+          <div class="f"><span>المسافر</span><b>أنت</b></div>
+          <div class="f dest"><span>الوجهة النهائية</span><b>رؤية ٦/٦</b><span>بإذن الله</span></div>
+          <div class="f"><span>المركبة</span><b dir="ltr" style="text-align:right;font-family:Roboto,sans-serif;font-size:15px">AMARIS 750S</b></div>
           <div class="f"><span>المحطات</span><b>٤ محطات</b></div>
-          <div class="f"><span>الراكب</span><b>أنت</b></div>
         </div>
         <div class="tear"><i></i></div>
         <div class="stub">
           <div class="f"><span>البوابة</span><b style="font-size:14px">ابدأ من المحطة ١</b></div>
-          <svg width="120" height="34" viewBox="0 0 124 36" aria-hidden="true"><g fill="#0B2545"><rect x="0" width="3" height="36"/><rect x="6" width="1.5" height="36"/><rect x="10" width="4" height="36"/><rect x="17" width="1.5" height="36"/><rect x="21" width="2.5" height="36"/><rect x="27" width="1.5" height="36"/><rect x="31" width="4" height="36"/><rect x="38" width="2" height="36"/><rect x="43" width="1.5" height="36"/><rect x="47" width="3" height="36"/><rect x="53" width="1.5" height="36"/><rect x="57" width="4" height="36"/><rect x="64" width="2" height="36"/><rect x="69" width="1.5" height="36"/><rect x="73" width="3" height="36"/><rect x="79" width="1.5" height="36"/><rect x="83" width="4" height="36"/><rect x="90" width="2" height="36"/><rect x="95" width="1.5" height="36"/><rect x="99" width="3" height="36"/><rect x="105" width="1.5" height="36"/><rect x="109" width="4" height="36"/><rect x="116" width="2" height="36"/><rect x="121" width="3" height="36"/></g></svg>
+          <svg width="120" height="34" viewBox="0 0 124 36" aria-hidden="true"><g fill="#001C3A"><rect x="0" width="3" height="36"/><rect x="6" width="1.5" height="36"/><rect x="10" width="4" height="36"/><rect x="17" width="1.5" height="36"/><rect x="21" width="2.5" height="36"/><rect x="27" width="1.5" height="36"/><rect x="31" width="4" height="36"/><rect x="38" width="2" height="36"/><rect x="43" width="1.5" height="36"/><rect x="47" width="3" height="36"/><rect x="53" width="1.5" height="36"/><rect x="57" width="4" height="36"/><rect x="64" width="2" height="36"/><rect x="69" width="1.5" height="36"/><rect x="73" width="3" height="36"/><rect x="79" width="1.5" height="36"/><rect x="83" width="4" height="36"/><rect x="90" width="2" height="36"/><rect x="95" width="1.5" height="36"/><rect x="99" width="3" height="36"/><rect x="105" width="1.5" height="36"/><rect x="109" width="4" height="36"/><rect x="116" width="2" height="36"/><rect x="121" width="3" height="36"/></g></svg>
         </div>
       </div>
       <div class="ticket-cta stagger">
         <div><button class="go" type="button" data-go="2">يلا نطير
-          <svg width="20" height="20" viewBox="0 0 40 24" aria-hidden="true"><g transform="scale(-1,1) translate(-40,0)"><path d="M14 0h4l4 10h12c3 0 4 2 4 2s-1 2-4 2H22l-4 10h-4l2-10H8l-3 4H2l2-6-2-6h3l3 4h8z" fill="#4FB3E8"/></g></svg>
+          <svg width="20" height="20" viewBox="0 0 40 24" aria-hidden="true"><g transform="scale(-1,1) translate(-40,0)"><path d="M14 0h4l4 10h12c3 0 4 2 4 2s-1 2-4 2H22l-4 10h-4l2-10H8l-3 4H2l2-6-2-6h3l3 4h8z" fill="#00AFCF"/></g></svg>
         </button></div>
       </div>
     </div>
@@ -295,7 +300,7 @@ img{display:block;max-width:100%}
         <g id="dotsG"></g>
         <g id="plane">
           <g opacity=".28" filter="url(#psh)" transform="translate(-7,16)">
-            <path d="M31 0C31-2.6 27-3.8 20-3.8L-25-3.1C-29-2.9-32-1.2-32 0S-29 2.9-25 3.1L20 3.8C27 3.8 31 2.6 31 0Z M7-3 -9-30 -14-30 -5-3Z M7 3 -9 30 -14 30 -5 3Z M-22-2.5 -30-13 -34-13 -29-2.5Z M-22 2.5 -30 13 -34 13 -29 2.5Z" fill="#0B2545"/>
+            <path d="M31 0C31-2.6 27-3.8 20-3.8L-25-3.1C-29-2.9-32-1.2-32 0S-29 2.9-25 3.1L20 3.8C27 3.8 31 2.6 31 0Z M7-3 -9-30 -14-30 -5-3Z M7 3 -9 30 -14 30 -5 3Z M-22-2.5 -30-13 -34-13 -29-2.5Z M-22 2.5 -30 13 -34 13 -29 2.5Z" fill="#001C3A"/>
           </g>
           <path d="M8-3.2 -7-29.5C-7.6-30.4-9-30.6-10-30.6L-13.6-30.6-5.4-3.2Z" fill="url(#wingG)" stroke="#8FA3B6" stroke-width=".5"/>
           <path d="M8 3.2 -7 29.5C-7.6 30.4-9 30.6-10 30.6L-13.6 30.6-5.4 3.2Z" fill="url(#wingG)" stroke="#8FA3B6" stroke-width=".5"/>
@@ -304,16 +309,16 @@ img{display:block;max-width:100%}
           <path d="M-22-2.6-30.5-13C-31-13.6-32-13.8-33-13.8L-34.5-13.8-29.2-2.6Z" fill="url(#wingG)" stroke="#8FA3B6" stroke-width=".5"/>
           <path d="M-22 2.6-30.5 13C-31 13.6-32 13.8-33 13.8L-34.5 13.8-29.2 2.6Z" fill="url(#wingG)" stroke="#8FA3B6" stroke-width=".5"/>
           <path d="M31 0C31-2.6 27-3.8 20-3.8L-25-3.1C-29-2.9-32-1.2-32 0S-29 2.9-25 3.1L20 3.8C27 3.8 31 2.6 31 0Z" fill="url(#fus)" stroke="#8FA3B6" stroke-width=".6"/>
-          <path d="M18-1.1-24-.9-24 .9 18 1.1Z" fill="#4FB3E8" opacity=".9"/>
-          <path d="M-24-1.2-32 0-24 1.2Z" fill="#0B2545"/>
-          <path d="M27.4-1.9C28.6-1.2 28.6 1.2 27.4 1.9L25.6 1.6C26.2.6 26.2-.6 25.6-1.6Z" fill="#0B2545"/>
+          <path d="M18-1.1-24-.9-24 .9 18 1.1Z" fill="#00AFCF" opacity=".9"/>
+          <path d="M-24-1.2-32 0-24 1.2Z" fill="#001C3A"/>
+          <path d="M27.4-1.9C28.6-1.2 28.6 1.2 27.4 1.9L25.6 1.6C26.2.6 26.2-.6 25.6-1.6Z" fill="#001C3A"/>
           <circle cx="-10.5" cy="-30" r=".9" fill="#E5484D"/><circle cx="-10.5" cy="30" r=".9" fill="#3DBE8B"/>
         </g>
       </svg>
       <div class="float to-left hide" id="float">
         <span class="tail" aria-hidden="true"></span>
         <article class="card">
-          <div class="pic"><img src="media/bg-exam.jpg" alt=""><span class="lbl">صورة تجريبية</span></div>
+          <div class="pic"><img src="media/ph-exam.jpg" alt="فحص النظر"></div>
           <div class="txt"><small>المحطة ١</small><h4>الفحص</h4><p>الدكتور يحدد إيه اللي يناسب عينك.</p></div>
         </article>
         <article class="card">
@@ -321,12 +326,12 @@ img{display:block;max-width:100%}
           <div class="txt"><small>المحطة ٢</small><h4>التعرّف على الجهاز</h4><p>جهاز <span dir="ltr">AMARIS 750S</span> بتقنية <span dir="ltr">TransPRK</span>: ليزر من غير شفرة ولا شق.</p></div>
         </article>
         <article class="card">
-          <div class="pic"><img src="media/bg-day.jpg" alt=""><span class="lbl">صورة تجريبية</span></div>
-          <div class="txt"><small>المحطة ٣</small><h4>يوم الرحلة</h4><p>من استلام التذكرة في الاستقبال لحد التحضير ودخول غرفة الليزر.</p></div>
+          <div class="pic"><img src="media/ph-day.jpg" alt="فريق الفردوس يوم الرحلة"></div>
+          <div class="txt"><small>المحطة ٣</small><h4>يوم الرحلة</h4><p>من تذكرة الرحلة في الاستقبال، لصالة ما قبل الانطلاق، للحظة التحوّل في غرفة الليزر.</p></div>
         </article>
         <article class="card">
-          <div class="pic"><img src="media/bg-follow.jpg" alt=""><span class="lbl">صورة تجريبية</span></div>
-          <div class="txt"><small>المحطة ٤</small><h4>وصلت لوجهتك</h4><p>تعليمات ما بعد الرحلة وميعاد المتابعة.</p></div>
+          <div class="pic"><img src="media/ph-eye.jpg" alt="رؤية أوضح"></div>
+          <div class="txt"><small>المحطة ٤</small><h4>وصلت لوجهتك</h4><p>أهلًا بيك في عالمك الجديد.. ومعاك «زاد الرحلة»: تعليمات ما بعد الرحلة وميعاد المتابعة.</p></div>
         </article>
       </div>
     </div>
@@ -335,11 +340,11 @@ img{display:block;max-width:100%}
   <!-- 6 · ABOUT -->
   <section class="scene" id="s-about" aria-label="عن الفردوس">
     <div class="inner glass stagger">
-      <span class="eyebrow">عن الفردوس <span class="tag">نص تجريبي</span></span>
+      <span class="eyebrow">عن الفردوس</span>
       <h2 class="h" style="font-size:32px">مركز الفردوس للعيون</h2>
-      <p class="lead">فريق من أطباء العيون المتخصصين بيرافقك في كل خطوة، من أول فحص لحد ما تشوف أوضح.</p>
-      <div class="photo"><img src="media/bg-device.jpg" alt="صورة تجريبية من المركز"><span class="lbl">صورة تجريبية</span></div>
-      <div class="chips"><span>فحص شامل</span><span>أحدث أجهزة الليزر</span><span>متابعة بعد الرحلة</span></div>
+      <p class="lead">أول مركز عيون في الشرقية حاصل على اعتماد <span dir="ltr" style="font-family:Roboto,sans-serif">GAHAR</span>. بنجمع بين التميّز الطبي والتكنولوجيا المتقدمة والرعاية الإنسانية، في مكان واحد تثق فيه لأهالي الشرقية وشرق الدلتا.</p>
+      <div class="photo"><img src="media/ph-doctor.jpg" alt="طبيب من فريق الفردوس"></div>
+      <div class="chips"><span>المريض أولًا</span><span>التميّز</span><span>النزاهة</span><span>الابتكار</span><span>الثقة</span></div>
     </div>
   </section>
 
@@ -352,16 +357,20 @@ img{display:block;max-width:100%}
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 18l-6-6 6-6"/></svg></button></div>
       <div class="contact">
         <a class="crow" href="tel:01000000000">
-          <span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#156A9E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></span>
+          <span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00798F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></span>
           <span><span>اتصل بينا · واتساب</span><b class="ltr">0100 000 0000</b></span>
         </a>
         <div class="crow">
-          <span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#156A9E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
-          <span><span>العنوان</span><b>١٢ شارع المثال، القاهرة</b></span>
+          <span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00798F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+          <span><span>العنوان</span><b>١٢ شارع المثال، الشرقية</b></span>
         </div>
         <div class="crow">
-          <span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#156A9E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+          <span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00798F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
           <span><span>مواعيد العمل</span><b>السبت – الخميس · ١٠ ص – ١٠ م</b></span>
+        </div>
+        <div class="crow">
+          <span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00798F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="#00798F"/></svg></span>
+          <span><span>إنستجرام · فيسبوك</span><b class="ltr" style="font-family:Roboto,sans-serif">@alferdawseyecenter</b></span>
         </div>
       </div>
     </div>
@@ -378,7 +387,7 @@ img{display:block;max-width:100%}
   <div class="sheet-bg" data-close></div>
   <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetTitle">
     <div class="grab"></div>
-    <button class="x" type="button" data-close aria-label="إغلاق"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0B2545" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+    <button class="x" type="button" data-close aria-label="إغلاق"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#001C3A" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
     <form class="form" id="form" novalidate>
       <h3 id="sheetTitle">احجز فحص تصحيح الإبصار</h3>
       <p class="sub">اكتب بياناتك وهنكلمك نأكد الموعد.</p>
@@ -391,7 +400,7 @@ img{display:block;max-width:100%}
       <button class="cta" type="submit">أرسل الطلب</button>
     </form>
     <div class="done" role="status">
-      <div class="ok"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#156A9E" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg></div>
+      <div class="ok"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#00798F" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg></div>
       <h3>وصلنا طلبك!</h3>
       <p>فريق الفردوس هيتواصل معاك قريب لتأكيد الموعد.</p>
       <button class="cta" type="button" data-close>تمام</button>
@@ -407,14 +416,14 @@ img{display:block;max-width:100%}
 
   /* steps: 0 video · 1 ticket · 2-5 stations · 6 about · 7 book */
   var STEPS=[
-    {scene:'s-intro',bg:'sky',light:false,blur:28},
-    {scene:'s-ticket',bg:'sky',light:true,blur:30},
+    {scene:'s-intro',bg:'clinic',light:false,blur:28},
+    {scene:'s-ticket',bg:'clinic',light:true,blur:30},
     {scene:'s-journey',bg:'exam',light:true,st:0},
     {scene:'s-journey',bg:'device',light:false,dark:true,st:1},
     {scene:'s-journey',bg:'day',light:false,dark:true,st:2},
-    {scene:'s-journey',bg:'follow',light:true,st:3},
-    {scene:'s-about',bg:'about',light:true,blur:2},
-    {scene:'s-book',bg:'follow',light:true,blur:4}
+    {scene:'s-journey',bg:'eye',light:false,dark:true,st:3},
+    {scene:'s-about',bg:'doctor',light:true,blur:3},
+    {scene:'s-book',bg:'eye',light:false,blur:5}
   ];
   var cur=-1, busy=false;
   var bgsEl=document.getElementById('bgs');
@@ -493,7 +502,7 @@ img{display:block;max-width:100%}
   /* ---------- video ---------- */
   var vid=document.getElementById('vid'), vbar=document.getElementById('vbar'), cap=document.getElementById('cap');
   var playBtn=document.getElementById('playBtn'), playIco=document.getElementById('playIco'), playTxt=document.getElementById('playTxt');
-  var CAPS=[[0,'أهلًا بيك في مركز الفردوس للعيون'],[3.2,'ده جهاز SCHWIND AMARIS 750S'],[7,'رحلتك بتبدأ بفحص دقيق'],[9.4,'ووجهتها: رؤية أوضح']];
+  var CAPS=[[0,'أهلًا بيك في مركز الفردوس للعيون'],[2.4,'رحلتك بتبدأ بفحص دقيق'],[4.8,'على جهاز SCHWIND AMARIS 750S'],[7.6,'فريقنا معاك في كل خطوة'],[10,'ووجهتك: رؤية أوضح']];
   var lastCap='';
   function setIcon(playing){
     playIco.innerHTML=playing?'<rect x="6" y="5" width="4" height="14" rx="1" fill="currentColor"/><rect x="14" y="5" width="4" height="14" rx="1" fill="currentColor"/>':'<path d="M8 4.5v15l12-7.5z" fill="currentColor"/>';
