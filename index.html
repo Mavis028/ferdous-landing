@@ -300,7 +300,7 @@ img{display:block;max-width:100%}
     <div class="jhead">
       <span class="step" id="stepLbl">المحطة ١ من ٤</span>
       <div class="titles" id="titles">
-        <h3>الفحص</h3><h3>الجهاز</h3><h3>يوم العملية</h3><h3>الوصول والمتابعة</h3>
+        <h3>الفحص</h3><h3>الجهاز</h3><h3>يوم الرحلة</h3><h3>الوصول والمتابعة</h3>
       </div>
     </div>
     <div class="route" id="route">
@@ -342,7 +342,7 @@ img{display:block;max-width:100%}
         </article>
         <article class="card">
           <div class="pic"><img src="media/ph-day.jpg" alt="فريق الفردوس يوم الرحلة"></div>
-          <div class="txt"><small>المحطة ٣ · يوم العملية</small><h4>تذكرتك جاهزة… ودي بداية رحلتك.</h4><p>هتستلم تذكرتك في الاستقبال، والفريق هيجهّزك ويشرح لك اللي هيحصل قبل ما تدخل غرفة الليزر. لو هدفك تقلّل اعتمادك على النظارة، يوم العملية هو خطوة في رحلة لرؤية أوضح.</p></div>
+          <div class="txt"><small>المحطة ٣ · يوم الرحلة</small><h4>تذكرتك جاهزة… ودي بداية رحلتك.</h4><p>هتستلم تذكرتك في الاستقبال، والفريق هيجهّزك ويشرح لك اللي هيحصل قبل ما تدخل غرفة الليزر. لو هدفك تقلّل اعتمادك على النظارة، يوم الرحلة هو خطوة في رحلة لرؤية أوضح.</p></div>
         </article>
         <article class="card">
           <div class="pic"><img src="media/ph-eye.jpg" alt="رؤية أوضح"></div>
@@ -542,7 +542,7 @@ img{display:block;max-width:100%}
   var path=document.getElementById('routePath'), trail=document.getElementById('trailPath');
   var plane=document.getElementById('plane'), dotsG=document.getElementById('dotsG'), svgEl=document.getElementById('routeSvg');
   var L=path.getTotalLength(); trail.style.strokeDasharray=L; trail.style.strokeDashoffset=L;
-  var STOPS=[0.03,0.34,0.64,0.97], NAMES=['الفحص','الجهاز','يوم العملية','الوصول والمتابعة'], NS='http://www.w3.org/2000/svg', dotEls=[];
+  var STOPS=[0.03,0.34,0.64,0.97], NAMES=['الفحص','الجهاز','يوم الرحلة','الوصول والمتابعة'], NS='http://www.w3.org/2000/svg', dotEls=[];
   STOPS.forEach(function(f,i){
     var pt=path.getPointAtLength(f*L), g=document.createElementNS(NS,'g'); g.setAttribute('class','dot');
     var pu=document.createElementNS(NS,'circle'); pu.setAttribute('class','pulse'); pu.setAttribute('cx',pt.x); pu.setAttribute('cy',pt.y); pu.setAttribute('r',11);
