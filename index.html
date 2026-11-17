@@ -217,6 +217,28 @@ img{display:block;max-width:100%}
 .done p{margin:0 0 20px;color:var(--muted);line-height:1.75}
 .sent .form{display:none}.sent .done{display:block}
 
+
+/* keep panels below the header on short phones */
+#s-about,#s-book{justify-content:safe center;padding-top:76px;padding-bottom:64px}
+#s-about .inner,#s-book .inner{max-height:calc(var(--vh) - 140px);overflow-y:auto;overscroll-behavior:contain;scrollbar-width:none}
+#s-about .inner::-webkit-scrollbar,#s-book .inner::-webkit-scrollbar{display:none}
+@media (max-height:860px){
+  .glass{padding:18px 18px}
+  #s-about .h,#s-book .h{font-size:23px !important;margin:4px 0 8px}
+  #s-about .lead,#s-book .lead{font-size:14px;line-height:1.7}
+  #s-book .lead{margin-bottom:12px !important}
+  .photo{height:150px;margin-top:12px}
+  .cta{min-height:50px;font-size:15px}
+  .contact{gap:8px;margin-top:12px}
+  .crow{padding:8px 12px;gap:10px;border-radius:14px}
+  .crow .ic{width:34px;height:34px;border-radius:10px}
+  .crow b{font-size:14px}
+}
+@media (max-height:720px){
+  .photo{height:110px}
+  #s-about .lead{font-size:13px}
+  .crow span{font-size:11px}
+}
 @media (prefers-reduced-motion: reduce){*,*::before,*::after{animation:none !important;transition-duration:.01ms !important}}
 </style>
 </head>
