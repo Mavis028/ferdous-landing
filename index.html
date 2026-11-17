@@ -280,7 +280,7 @@ img{display:block;max-width:100%}
     <div class="jhead">
       <span class="step" id="stepLbl">المحطة ١ من ٤</span>
       <div class="titles" id="titles">
-        <h3>الفحص</h3><h3>التعرّف على الجهاز</h3><h3>يوم الرحلة</h3><h3>المتابعة</h3>
+        <h3>الفحص</h3><h3>التعرّف على الجهاز</h3><h3>يوم الرحلة</h3><h3>وصلت لوجهتك</h3>
       </div>
     </div>
     <div class="route" id="route">
@@ -326,7 +326,7 @@ img{display:block;max-width:100%}
         </article>
         <article class="card">
           <div class="pic"><img src="media/bg-follow.jpg" alt=""><span class="lbl">صورة تجريبية</span></div>
-          <div class="txt"><small>المحطة ٤</small><h4>المتابعة</h4><p>تعليمات ما بعد الرحلة وميعاد المتابعة.</p></div>
+          <div class="txt"><small>المحطة ٤</small><h4>وصلت لوجهتك</h4><p>تعليمات ما بعد الرحلة وميعاد المتابعة.</p></div>
         </article>
       </div>
     </div>
@@ -516,7 +516,7 @@ img{display:block;max-width:100%}
   var path=document.getElementById('routePath'), trail=document.getElementById('trailPath');
   var plane=document.getElementById('plane'), dotsG=document.getElementById('dotsG'), svgEl=document.getElementById('routeSvg');
   var L=path.getTotalLength(); trail.style.strokeDasharray=L; trail.style.strokeDashoffset=L;
-  var STOPS=[0.03,0.34,0.64,0.97], NAMES=['الفحص','الجهاز','يوم الرحلة','المتابعة'], NS='http://www.w3.org/2000/svg', dotEls=[];
+  var STOPS=[0.03,0.34,0.64,0.97], NAMES=['الفحص','الجهاز','يوم الرحلة','وصلت لوجهتك'], NS='http://www.w3.org/2000/svg', dotEls=[];
   STOPS.forEach(function(f,i){
     var pt=path.getPointAtLength(f*L), g=document.createElementNS(NS,'g'); g.setAttribute('class','dot');
     var pu=document.createElementNS(NS,'circle'); pu.setAttribute('class','pulse'); pu.setAttribute('cx',pt.x); pu.setAttribute('cy',pt.y); pu.setAttribute('r',11);
