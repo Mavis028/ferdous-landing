@@ -3,19 +3,24 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="only light">
+<meta name="supported-color-schemes" content="light">
+<meta name="theme-color" content="#164A8F">
 <title>الفردوس — رحلة تصحيح الإبصار</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 :root{
+  color-scheme:only light;
   --navy:#001C3A;--blue:#164A8F;--sky:#00AFCF;--sky-ink:#00798F;--tint:#E6F4F8;--ghost:#E6E6E6;
   --muted:#4A5B73;--line:#D6E6F2;--ease:cubic-bezier(.2,.8,.2,1);
   --vh:100vh;
 }
 @supports (height:100svh){:root{--vh:100svh}}
 *{box-sizing:border-box}
-html,body{margin:0;height:100%;overflow:hidden;overscroll-behavior:none}
+html,body{margin:0;height:100%;overflow:hidden;overscroll-behavior:none;color-scheme:only light}
+@media (prefers-color-scheme: dark){html,body{color-scheme:only light}}
 body{font-family:'IBM Plex Sans Arabic','Roboto',system-ui,sans-serif;color:var(--navy);background:var(--navy);-webkit-font-smoothing:antialiased;touch-action:none}
 button{font:inherit;color:inherit}
 img{display:block;max-width:100%}
