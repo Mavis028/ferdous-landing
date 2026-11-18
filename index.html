@@ -302,7 +302,7 @@ img{display:block;max-width:100%}
 .ci.run .ci-ring2{animation:ciRingIn 0.3s ease 1.8s both,ciSpin 1.6s linear infinite}
 .ci.run .ci-scan{animation:ciScan 0.65s ease-in-out 2s 2 both}
 .ci.run .ci-pi{animation:ciPin 0.3s ease both}
-.ci.run .ci-pc{animation:ciFlash 0.55s ease both}
+.ci.run .ci-pc{animation:ciFlash .45s ease both}
 .ci.run .ci-portal{animation:ciOut 0.45s ease 3.8s forwards}
 .ci.run .ci-portal span{animation:ciOpen 0.5s cubic-bezier(.7,0,.9,.5) 3.3s forwards}
 .ci.run .ci-scene{animation:ciFade 0.5s ease 3.7s forwards}
@@ -327,7 +327,18 @@ img{display:block;max-width:100%}
 @keyframes ciOpen{from{transform:scale(0)}to{transform:scale(90)}}
 @keyframes ciFocus{to{filter:blur(0);transform:scale(1)}}
 @keyframes ciRise{from{opacity:0;transform:translateY(40px);filter:blur(10px)}to{opacity:1;transform:none;filter:none}}
-@media (max-width:760px){.ci-plist{display:none}.ci-replay{bottom:auto;top:72px;right:auto;left:16px;min-height:40px;font-size:12px}}
+@media (max-width:760px){
+  .ci-plist{right:16px;left:16px;top:calc(50% + 118px);transform:none;flex-direction:row;justify-content:space-between;gap:6px;padding:14px 0 0;border-right:0;border-top:1px solid rgba(155,231,245,.25);font-size:12.5px}
+  .ci-pi{position:static;flex-direction:column;align-items:center;gap:0}
+  .ci-pd{position:static;display:block;margin:-19px auto 8px}
+  .ci-pc{right:auto;left:50%;top:calc(100% + 18px);width:min(220px,70vw);transform:translateX(-50%)}
+  .ci-pc img{height:88px}
+  .ci.run .ci-pc{animation-name:ciFlashM}
+  .ci.run .ci-pi{animation-name:ciPinM}
+}
+@keyframes ciFlashM{0%{opacity:0;transform:translateX(-50%) scale(.9)}20%{opacity:1;transform:translateX(-50%) scale(1)}80%{opacity:1}100%{opacity:0}}
+@keyframes ciPinM{from{opacity:0}to{opacity:1}}
+@media (max-width:760px){.ci-replay{bottom:auto;top:72px;right:auto;left:16px;min-height:40px;font-size:12px}}
 @media (prefers-reduced-motion:reduce){
   .ci .ci-stage,.ci .ci-portal{display:none}
   .ci .ci-scene,.ci .ci-ghost,.ci .ci-title,.ci .ci-sub,.ci .ci-actions{animation:none!important;opacity:1}
@@ -400,7 +411,7 @@ img{display:block;max-width:100%}
           <div class="ci-ring2"></div>
           <div class="ci-scan"></div>
         </div>
-        <ul class="ci-plist"><li class="ci-pi" style="animation-delay:1.70s"><span class="ci-pd"></span><span>الفحص</span><span class="ci-pc" style="animation-delay:1.85s"><img src="media/ph-exam.jpg" alt=""><span class="ci-pcl">الفحص</span></span></li><li class="ci-pi" style="animation-delay:1.82s"><span class="ci-pd"></span><span>الجهاز</span><span class="ci-pc" style="animation-delay:2.08s"><img class="contain" src="media/amaris.webp" alt=""><span class="ci-pcl">الجهاز</span></span></li><li class="ci-pi" style="animation-delay:1.95s"><span class="ci-pd"></span><span>يوم الرحلة</span><span class="ci-pc" style="animation-delay:2.30s"><img src="media/ph-day.jpg" alt=""><span class="ci-pcl">يوم الرحلة</span></span></li><li class="ci-pi" style="animation-delay:2.08s"><span class="ci-pd"></span><span>وصلت لوجهتك</span><span class="ci-pc" style="animation-delay:2.52s"><img src="media/ph-eye.jpg" alt=""><span class="ci-pcl">وصلت لوجهتك</span></span></li></ul>
+        <ul class="ci-plist"><li class="ci-pi" style="animation-delay:1.70s"><span class="ci-pd"></span><span>الفحص</span><span class="ci-pc" style="animation-delay:1.85s"><img src="media/ph-exam.jpg" alt=""><span class="ci-pcl">الفحص</span></span></li><li class="ci-pi" style="animation-delay:1.82s"><span class="ci-pd"></span><span>الجهاز</span><span class="ci-pc" style="animation-delay:2.30s"><img class="contain" src="media/amaris.webp" alt=""><span class="ci-pcl">الجهاز</span></span></li><li class="ci-pi" style="animation-delay:1.95s"><span class="ci-pd"></span><span>يوم الرحلة</span><span class="ci-pc" style="animation-delay:2.75s"><img src="media/ph-day.jpg" alt=""><span class="ci-pcl">يوم الرحلة</span></span></li><li class="ci-pi" style="animation-delay:2.08s"><span class="ci-pd"></span><span>وصلت لوجهتك</span><span class="ci-pc" style="animation-delay:3.20s"><img src="media/ph-eye.jpg" alt=""><span class="ci-pcl">وصلت لوجهتك</span></span></li></ul>
       </div>
       <div class="ci-portal" aria-hidden="true"><span></span></div>
     </div>
